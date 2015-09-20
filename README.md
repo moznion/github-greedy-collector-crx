@@ -42,10 +42,10 @@ You can configure via option page of Chrome extension.
 You can use `--dir` option when run a server.
 Default, server uses `./ggc` to store cloned repository.
 
-### Specify Other Hosts
+### Specify other hosts
 
 Default, this extension supports only `https://github.com`.
-If you want to use this extensi on other hosts (e.g. your companies GitHub Enterprise),
+If you want to use this extension on the other hosts (e.g. your companies GitHub Enterprise),
 you can specify that by option page of Chrome extension.
 
 Author
