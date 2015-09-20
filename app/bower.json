@@ -4,7 +4,7 @@
   "authors": [
     "moznion <moznion@gmail.com>"
   ],
-  "description": "Clone repository automatically just accessed at repository page",
+  "description": "Clone repository automatically just by accessing at repository page",
   "ignore": [
     "**/.*",
     "node_modules",
