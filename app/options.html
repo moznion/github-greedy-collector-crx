@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="vendor/zepto.min.js"></script>
+    <title>Configuration</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Configuration</h1>
+      <div>
+        <label>
+          <span class="label">Port (default: 8080)</span>
+          <input type="text" id="port" size="40" placeholder="8080" />
+        </label>
+      </div>
+      <div>
+        <label>
+          <span class="label">Optional Hosts (comma separated)</span>
+          <input type="text" id="hosts" size="40" placeholder="http://examle.com, http://example.net" />
+        </label>
+      </div>
+      <div>
+        <button type="submit" id="save">Save</button>
+      </div>
+      <script src="js/option.js"></script>
+    </div>
+  </body>
+</html>
+

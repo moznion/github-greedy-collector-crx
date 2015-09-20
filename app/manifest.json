@@ -1,0 +1,20 @@
+{
+    "name": "github-greedy-collector",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "Clone repository automatically just accessed at repository page",
+    "background": {
+        "scripts": [
+            "vendor/zepto.min.js",
+            "js/background.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["js/script.js"],
+        "run_at": "document_end"
+    }],
+    "options_page": "options.html"
+}
+
