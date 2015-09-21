@@ -59,7 +59,7 @@ func gitClone(w http.ResponseWriter, r *http.Request) {
 	repo := r.FormValue("repo")
 
 	if proto == "" || host == "" || owner == "" || repo == "" {
-		w.WriteHeader(404)
+		w.WriteHeader(400)
 		fmt.Fprintf(w, "Bad Request")
 		return
 	}
