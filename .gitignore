@@ -1,4 +1,5 @@
-server/ggc
+ggc-server/ggc
+ggc-server/ggc-server
 app/bower_components
 app/node_modules
 
