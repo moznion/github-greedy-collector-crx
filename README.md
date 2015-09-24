@@ -33,6 +33,8 @@ You can use `--port` option, for example;
 $ ./ggc-server --port 12345
 ```
 
+Server binary is hosted on [GitHub Releases](https://github.com/moznion/github-greedy-collector-crx/releases).
+
 #### Client
 
 You can configure via option page of Chrome extension.
