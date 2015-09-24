@@ -53,18 +53,17 @@ func gitClone(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	proto := r.FormValue("proto")
 	host := r.FormValue("host")
 	owner := r.FormValue("owner")
 	repo := r.FormValue("repo")
 
-	if proto == "" || host == "" || owner == "" || repo == "" {
+	if host == "" || owner == "" || repo == "" {
 		w.WriteHeader(400)
 		fmt.Fprintf(w, "Bad Request")
 		return
 	}
 
-	url := fmt.Sprintf("%s://%s/%s/%s", proto, host, owner, repo)
+	url := fmt.Sprintf("git@%s:%s/%s", host, owner, repo)
 	reposPath := filepath.Join(ggcDir, host, owner, repo)
 	cmd := exec.Command("git", "clone", url, reposPath)
 
