@@ -1,6 +1,8 @@
 var gulp = require('gulp'),
     bower = require('gulp-bower'),
-    gulpFilter = require('gulp-filter');
+    gulpFilter = require('gulp-filter'),
+    jshint = require('gulp-jshint'),
+    jshintStylish = require('jshint-stylish');
 
 gulp.task('bower-install', function () {
     return (function () {
@@ -16,3 +18,9 @@ gulp.task('bower', ['bower-install'], function () {
         .pipe(gulp.dest('vendor'));
 });
 
+gulp.task('lint', function () {
+    return gulp.src(['js/*.js'])
+        .pipe(jshint())
+        .pipe(jshint.reporter(jshintStylish))
+        .pipe(jshint.reporter("fail"));
+});

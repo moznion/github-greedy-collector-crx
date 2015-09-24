@@ -9,6 +9,8 @@
     "bower": "^1.5.2",
     "gulp": "^3.9.0",
     "gulp-bower": "0.0.10",
-    "gulp-filter": "^3.0.1"
+    "gulp-filter": "^3.0.1",
+    "gulp-jshint": "^1.11.2",
+    "jshint-stylish": "^2.0.1"
   }
 }
