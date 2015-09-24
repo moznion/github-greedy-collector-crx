@@ -15,7 +15,7 @@ build:
     - script:
         name: goxc build & archive
         code: |
-          goxc -n setlock -tasks='xc archive' -bc 'linux,!arm windows darwin' -d $WERCKER_OUTPUT_DIR/ -build-ldflags "-X main.Version \"$(git describe --tags --always --dirty) ($(git name-rev --name-only HEAD | sed 's/^remotes\/origin\///'))\"" -resources-include='README*'
+          goxc -n ggc-server -tasks='xc archive' -bc 'linux,!arm windows darwin' -d $WERCKER_OUTPUT_DIR/ -build-ldflags "-X main.Version \"$(git describe --tags --always --dirty) ($(git name-rev --name-only HEAD | sed 's/^remotes\/origin\///'))\"" -resources-include='README*'
     - script:
         name: output release tag
         code: |
@@ -31,20 +31,20 @@ deploy:
         tag: $RELEASE_TAG
     - wercker/github-upload-asset:
         token: $GITHUB_TOKEN
-        file: snapshot/setlock_linux_386.tar.gz
+        file: snapshot/ggc-server_linux_386.tar.gz
     - wercker/github-upload-asset:
         token: $GITHUB_TOKEN
-        file: snapshot/setlock_linux_amd64.tar.gz
+        file: snapshot/ggc-server_linux_amd64.tar.gz
     - wercker/github-upload-asset:
         token: $GITHUB_TOKEN
-        file: snapshot/setlock_darwin_386.zip
+        file: snapshot/ggc-server_darwin_386.zip
     - wercker/github-upload-asset:
         token: $GITHUB_TOKEN
-        file: snapshot/setlock_darwin_amd64.zip
+        file: snapshot/ggc-server_darwin_amd64.zip
     - wercker/github-upload-asset:
         token: $GITHUB_TOKEN
-        file: snapshot/setlock_windows_386.zip
+        file: snapshot/ggc-server_windows_386.zip
     - wercker/github-upload-asset:
         token: $GITHUB_TOKEN
-        file: snapshot/setlock_windows_amd64.zip
+        file: snapshot/ggc-server_windows_amd64.zip
 
