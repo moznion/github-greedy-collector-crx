@@ -5,7 +5,7 @@
     "description": "Clone repository automatically just by accessing at repository page",
     "background": {
         "scripts": [
-            "vendor/zepto.min.js",
+            "vendor/zepto/zepto.min.js",
             "js/background.js"
         ],
         "persistent": false
