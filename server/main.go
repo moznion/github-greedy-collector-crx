@@ -49,8 +49,10 @@ Options:
 		log.Fatal(err)
 	}
 
-	if err := os.MkdirAll(ggcDir, 0777); err != nil {
-		log.Fatal(err)
+	if _, err := os.Stat(ggcDir); os.IsNotExist(err) {
+		if err := os.MkdirAll(ggcDir, 0777); err != nil {
+			log.Fatal(err)
+		}
 	}
 	log.Printf("Accepting connections at http://localhost:%s/", port)
 	log.Printf("Use base directory: %s", ggcDir)
