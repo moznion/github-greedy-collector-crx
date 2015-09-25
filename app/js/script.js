@@ -1,14 +1,6 @@
-(function () {
+var GGC = {
     /*global document, chrome*/
-
-    chrome.runtime.sendMessage({
-        type: "check-domain",
-        location: document.location
-    }, function(response) {
-        if (response.matched === false) {
-            return;
-        }
-
+    clone: function () {
         var paths = document.location.pathname.split('/');
 
         var owner = paths[1];
@@ -26,8 +18,34 @@
             owner: owner,
             repo: repo
         }, function (response) {
-            console.log(response);
+            // console.log(response);
         });
+    }
+};
+
+(function () {
+    /*global document, chrome*/
+
+    chrome.runtime.sendMessage({
+        type: "check-domain",
+        location: document.location
+    }, function (response) {
+        if (response.matched === false) {
+            return;
+        }
+        chrome.runtime.sendMessage({
+            type: "check-auto-clone"
+        }, function (response) {
+            if (response.autoClone) {
+                GGC.clone();
+            } else {
+                $('.pagehead-actions').append('<button id="__ggc-clone" class="btn btn-sm">Clone</button>')
+                $("#__ggc-clone").click(function () {
+                    GGC.clone();
+                });
+            }
+        });
+
     });
 }());
 
