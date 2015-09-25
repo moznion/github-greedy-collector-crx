@@ -40,7 +40,7 @@
                 break;
             case 'check-auto-clone':
                 var autoClone = localStorage.getItem('autoClone');
-                sendResponse({autoClone: autoClone === null || autoClone === 'true'});
+                sendResponse({autoClone: autoClone === 'true'});
                 break;
             default:
         }

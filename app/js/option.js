@@ -9,8 +9,8 @@
     $port.val(localStorage.getItem('port'));
     $hosts.val(localStorage.getItem('hosts'));
 
-    var isAutoCloneModeEnabled = localStorage.getItem('autoClone');
-    if (isAutoCloneModeEnabled === null || isAutoCloneModeEnabled === 'true') {
+    var autoClone = localStorage.getItem('autoClone');
+    if (autoClone === 'true') {
         $autoClone.prop('checked', true);
     } else {
         $autoClone.prop('checked', false);
