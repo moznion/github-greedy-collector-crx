@@ -7,7 +7,7 @@
             case 'git-clone':
                 var port = 8080;
                 var optionalPort = localStorage.getItem('port');
-                if (typeof optionalPort === 'undefined') {
+                if (optionalPort) {
                     port = optionalPort;
                 }
                 var url = 'http://localhost:' + port;
