@@ -13,6 +13,15 @@ import (
 var ggcDir string
 var port string
 
+func ggcDirDefault() string {
+	dir := "ggc"
+	b, err := exec.Command("git", "config", "ghq.root").CombinedOutput()
+	if err == nil {
+		dir = string(b)
+	}
+	return dir
+}
+
 func main() {
 	flag.Usage = func() {
 		fmt.Printf(`Usage:
@@ -24,14 +33,20 @@ Options:
 	}
 
 	var help bool
+
 	flag.StringVar(&port, "port", "8080", "Port for listen")
-	flag.StringVar(&ggcDir, "dir", "ggc", "Directory to save repositories")
+	flag.StringVar(&ggcDir, "dir", ggcDirDefault(), "Directory to save repositories")
 	flag.BoolVar(&help, "help", false, "Show help")
 	flag.Parse()
 
 	if help {
 		flag.Usage()
 		os.Exit(0)
+	}
+
+	ggcDir, err := filepath.Abs(ggcDir)
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	if err := os.MkdirAll(ggcDir, 0777); err != nil {
