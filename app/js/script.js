@@ -39,7 +39,7 @@ var GGC = {
             if (response.autoClone) {
                 GGC.clone();
             } else {
-                $('.pagehead-actions').append('<button id="__ggc-clone" class="btn btn-sm">Clone</button>')
+                $('.only-with-full-nav').append('<button id="__ggc-clone" class="btn btn-sm sidebar-button">Clone with GGC</button>')
                 $("#__ggc-clone").click(function () {
                     GGC.clone();
                 });
