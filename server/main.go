@@ -8,6 +8,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 )
 
 var ggcDir string
@@ -17,7 +18,9 @@ func ggcDirDefault() string {
 	dir := "ggc"
 	b, err := exec.Command("git", "config", "ghq.root").CombinedOutput()
 	if err == nil {
-		dir = string(b)
+		if dirs := strings.Split(string(b), "\n"); len(dirs) > 0 {
+			dir = strings.TrimSpace(dirs[0])
+		}
 	}
 	return dir
 }
