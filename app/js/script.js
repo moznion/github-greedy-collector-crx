@@ -36,7 +36,7 @@ var GGC = {
         chrome.runtime.sendMessage({
             type: "check-auto-clone"
         }, function (response) {
-            if (response.autoClone) {
+            if (response.autoClone && !(response.ignoreFork && $('span').hasClass('fork-flag'))) {
                 GGC.clone();
             } else {
                 $('.only-with-full-nav').append('<button id="__ggc-clone" class="btn btn-sm sidebar-button">Clone with GGC</button>')
@@ -48,4 +48,3 @@ var GGC = {
 
     });
 }());
-
