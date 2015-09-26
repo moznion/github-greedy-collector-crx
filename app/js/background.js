@@ -40,10 +40,11 @@
                 break;
             case 'check-auto-clone':
                 var autoClone = localStorage.getItem('autoClone');
-                sendResponse({autoClone: autoClone === 'true'});
+                var ignoreFork = localStorage.getItem('ignoreFork');
+
+                sendResponse({autoClone: autoClone === 'true', ignoreFork: ignoreFork === 'true'});
                 break;
             default:
         }
     });
 }());
-
