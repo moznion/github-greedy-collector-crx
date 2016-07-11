@@ -85,7 +85,7 @@ func gitClone(w http.ResponseWriter, r *http.Request) {
 
 	url := fmt.Sprintf("git@%s:%s/%s", host, owner, repo)
 	reposPath := filepath.Join(ggcDir, host, owner, repo)
-	cmd := exec.Command("git", "clone", url, reposPath)
+	cmd := exec.Command("git", "clone", "--depth=1", url, reposPath)
 
 	log.Printf("Repository: %s/%s/%s", host, owner, repo)
 
